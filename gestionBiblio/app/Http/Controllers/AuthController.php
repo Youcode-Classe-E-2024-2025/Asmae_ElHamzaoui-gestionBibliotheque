@@ -52,7 +52,12 @@ class AuthController extends Controller
 
       return back()->withErrors(['email' => 'Les informations de connexion sont incorrectes.']);
   }
-
+  // Gère la déconnexion
+  public function logout()
+  {
+      Auth::logout();
+      return redirect()->route('login')->with('success', 'Déconnexion réussie.');
+  }
 
   
 }
