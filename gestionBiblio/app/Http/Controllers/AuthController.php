@@ -38,6 +38,21 @@ class AuthController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Inscription réussie !');
     }
+  // Gère la connexion
+  public function login(Request $request)
+  {
+      $credentials = $request->validate([
+          'email' => 'required|email',
+          'password' => 'required',
+      ]);
+
+      if (Auth::attempt($credentials)) {
+          return redirect()->route('dashboard')->with('success', 'Connexion réussie !');
+      }
+
+      return back()->withErrors(['email' => 'Les informations de connexion sont incorrectes.']);
+  }
+
 
   
 }
