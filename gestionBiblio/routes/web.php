@@ -1,17 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SignUpController;
-use App\Http\Controllers\LoginController;
-
-
-
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/signup', [SignUpController::class, 'show']);
-Route::get('/login', [LoginController::class, 'show']);
-
-
+Route::get('/signup', [AuthController::class, 'showSinUp']);
+Route::get('/login', [AuthController::class, 'showLogin']);
+Route::post('/signup', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
