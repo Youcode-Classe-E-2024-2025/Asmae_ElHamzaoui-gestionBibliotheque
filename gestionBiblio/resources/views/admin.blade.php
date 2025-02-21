@@ -61,6 +61,33 @@
         @endif
     </div>
 
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-2xl shadow-lg w-96">
+            <h2 id="modal-title" class="text-xl font-semibold mb-4">Ajouter un livre</h2>
+            <form id="book-form" method="POST" enctype="multipart/form-data" class="space-y-4">
+                @csrf
+                <input type="hidden" name="_method" id="method-field">
+                <input type="hidden" name="book_id" id="book-id">
+                
+                <input type="text" name="title" id="book-title" placeholder="Titre" class="w-full p-2 border rounded-lg" required />
+                <input type="text" name="author" id="book-author" placeholder="Auteur" class="w-full p-2 border rounded-lg" required />
+                <input type="text" name="genre" id="book-genre" placeholder="Genre" class="w-full p-2 border rounded-lg" required />
+                <input type="file" name="photo" id="book-photo" class="w-full p-2 border rounded-lg" />
+                <input type="number" name="stock" id="book-stock" placeholder="Stock" class="w-full p-2 border rounded-lg" required />
+                
+                <div id="preview-container" class="hidden">
+                    <img id="preview-image" class="w-full h-40 object-cover mt-2">
+                </div>
+                
+                <div class="flex justify-end space-x-2">
+                    <button type="button" onclick="closeModal()" class="bg-gray-400 text-white px-4 py-2 rounded-lg">Annuler</button>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Sauvegarder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
    
 
 
