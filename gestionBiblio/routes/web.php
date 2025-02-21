@@ -18,3 +18,4 @@ Route::post('/login', [AuthController::class, 'login']);
 
 // Crud routes
 Route::get('/dashboard', [BookController::class, 'index'])->name('dashboard');
+Route::get('/books/create', [BookController::class, 'create']);
