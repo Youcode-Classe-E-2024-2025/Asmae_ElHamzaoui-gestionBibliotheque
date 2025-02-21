@@ -27,3 +27,5 @@ Route::post('/books/{book}', [BookController::class, 'destroy'])->name('books.de
 // Route pour la redirection vers la page d'emprunt
 Route::get('/emprunt', [BookController::class, 'showClientBooks'])->name('client.dashboard');
 
+// Route pour l'emprunt
+Route::post('/loans', [BookController::class, 'storeLoan'])->name('loans.store');
