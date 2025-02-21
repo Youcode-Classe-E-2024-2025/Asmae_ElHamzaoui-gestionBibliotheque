@@ -17,6 +17,10 @@
             <div class="flex space-x-6">
                 <a href="#livres" class="text-gray-300 hover:text-white transition">Livres</a>
                 <a href="#utilisateurs" class="text-gray-300 hover:text-white transition">Utilisateurs</a>
+                <form action="/logout" method="POST">
+                @csrf
+                <button type="submit" class="btn-logout">Log out</button>
+                </form>
                 <button onclick="openModal()" class="bg-blue-600 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-700 transition">
                     + Ajouter un Livre
                 </button>
