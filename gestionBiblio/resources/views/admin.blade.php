@@ -89,7 +89,51 @@
     </div>
 
    
-
+ <!-- Script pour le modal -->
+ <script>
+        function openModal() {
+            document.getElementById("modal-title").innerText = "Ajouter un livre";
+            document.getElementById("book-form").action = "/books";
+            document.getElementById("method-field").value = "";
+            document.getElementById("book-id").value = "";
+            
+            document.getElementById("book-title").value = "";
+            document.getElementById("book-author").value = "";
+            document.getElementById("book-genre").value = "";
+            document.getElementById("book-stock").value = "";
+            document.getElementById("book-photo").required = true;
+    
+            document.getElementById("preview-container").classList.add("hidden");
+    
+            document.getElementById("modal").classList.remove("hidden");
+        }
+    
+        function openEditModal(id, title, author, genre, stock, photoUrl) {
+            document.getElementById("modal-title").innerText = "Modifier un livre";
+            document.getElementById("book-form").action = "/books/" + id;
+            document.getElementById("method-field").value = "PUT";
+            document.getElementById("book-id").value = id;
+    
+            document.getElementById("book-title").value = title;
+            document.getElementById("book-author").value = author;
+            document.getElementById("book-genre").value = genre;
+            document.getElementById("book-stock").value = stock;
+            document.getElementById("book-photo").required = false;
+    
+            if (photoUrl) {
+                document.getElementById("preview-container").classList.remove("hidden");
+                document.getElementById("preview-image").src = photoUrl;
+            } else {
+                document.getElementById("preview-container").classList.add("hidden");
+            }
+    
+            document.getElementById("modal").classList.remove("hidden");
+        }
+    
+        function closeModal() {
+            document.getElementById("modal").classList.add("hidden");
+        }
+</script>
 
 </body>
 
