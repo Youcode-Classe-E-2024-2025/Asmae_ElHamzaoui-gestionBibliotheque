@@ -69,5 +69,14 @@ class BookController extends Controller
         return redirect()->route('dashboard')->with('success', 'Livre mis à jour avec succès !');
     }
     
-   
+    // Supprimer un livre
+    public function destroy(Book $book)
+    {
+        if ($book->photo) {
+            Storage::disk('public')->delete($book->photo);
+        }
+
+        $book->delete();
+        return redirect()->route('dashboard')->with('success', 'Livre ajouté avec succès !');
+    }
 }
