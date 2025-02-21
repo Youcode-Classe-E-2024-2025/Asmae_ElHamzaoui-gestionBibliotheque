@@ -40,7 +40,7 @@
                         <p class="text-gray-600 text-sm">Stock: <span class="font-medium">{{ $book->stock }}</span></p>
 
                         <div class="mt-4 flex space-x-2">
-                        <a href="#" onclick="openEditModal({{ $book->id }}, '{{ $book->title }}', '{{ $book->author }}', '{{ $book->genre }}', '{{ $book->stock }}', '{{ asset('storage/' . $book->photo) }}')" 
+                        <a href="#"onclick="openEditModal({{ $book->id }}, '{{ $book->title }}', '{{ $book->author }}', '{{ $book->genre }}', '{{ $book->stock }}', '{{ asset('storage/' . $book->photo) }}')" 
                              class="bg-yellow-500 text-white px-3 py-1 rounded-md text-sm hover:bg-yellow-600 transition">
                              Modifier
                         </a>
@@ -88,7 +88,7 @@
         </div>
     </div>
 
-
+   
  <!-- Script pour le modal -->
  <script>
         function openModal() {
