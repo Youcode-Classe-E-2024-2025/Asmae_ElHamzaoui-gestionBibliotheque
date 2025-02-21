@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 // Auth routes
-Route::get('/signup', [AuthController::class, 'showSinUp']);
+Route::get('/signup', [AuthController::class, 'showSignUp']);
 Route::get('/login', [AuthController::class, 'showLogin']);
 Route::post('/signup', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -22,3 +22,8 @@ Route::get('/books/create', [BookController::class, 'create']);
 Route::post('/books', [BookController::class, 'store']);
 Route::put('/books/{book}', [BookController::class, 'update']);
 Route::post('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
+
+
+// Route pour la redirection vers la page d'emprunt
+Route::get('/emprunt', [BookController::class, 'showClientBooks'])->name('client.dashboard');
+
